@@ -1,0 +1,8 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: convert-readme
+        name: Convert README.md to README.rst
+        entry: pandoc --from=markdown --to=rst --output=README.rst README.md
+        language: system
+        files: README.md

@@ -3,7 +3,16 @@ name = "fhir-validator"
 version = "0.0.0"
 description = "FHIR Validator and Identifier for resource vs bundle type"
 authors = ["patrick o'leary <pjaol@pjaol.com>"]
-readme = "README.md"
+readme = "README.rst"
+homepage = "https://github.com/thevgergroup/fhir-validator"
+repository = "https://github.com/thevgergroup/fhir-validator.git"
+keywords = ["FHIR", "HL7", "validator", "identifier"]
+license = "MIT"
+classifiers= [
+                "Intended Audience :: Healthcare Industry",
+                "License :: OSI Approved :: MIT License",
+                ]
+
 
 [tool.poetry.dependencies]
 python = '>=3.9,<3.12'
@@ -13,6 +22,15 @@ fastjsonschema = "^2.20.0"
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.3"
 
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+
+[tool.poetry.scripts]
+fhir-validator = "fhir_validator.validator:main"
+
+[tool.poetry-dynamic-versioning]
+enable = true
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
