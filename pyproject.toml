@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fhir-validator"
+version = "0.0.0"
+description = "FHIR Validator and Identifier for resource vs bundle type"
+authors = ["patrick o'leary <pjaol@pjaol.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = '>=3.9,<3.12'
+fastjsonschema = "^2.20.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

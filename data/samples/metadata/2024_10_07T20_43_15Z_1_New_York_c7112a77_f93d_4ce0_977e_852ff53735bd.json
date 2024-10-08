@@ -1,0 +1,19 @@
+{
+  "runID": "c7112a77-f93d-4ce0-977e-852ff53735bd",
+  "seed": 1728333795898,
+  "clinicianSeed": 1728333795898,
+  "referenceTime": "20241007",
+  "endTime": "20241007",
+  "version": "master-branch-latest\n",
+  "patientCount": 2,
+  "providerCount": 2894,
+  "payerCount": 9,
+  "javaVersion": "11.0.16",
+  "generate.thread_pool_size": -1,
+  "generatorThreads": 6,
+  "runStartTime": "2024-10-07T20:43:15Z",
+  "runTimeInSeconds": 7,
+  "exporter.years_of_history": "10",
+  "state": "New York",
+  "modules": "*"
+}
