@@ -291,8 +291,6 @@ We use pytest see the unit tests in ``tests``
 
    poetry run pytest
 
---------------
-
 .. _fhir-validator-1:
 
 FHIR Validator
@@ -619,5 +617,3 @@ We use pytest see the unit tests in ``tests``
 .. code:: sh
 
    poetry run pytest
-
---------------

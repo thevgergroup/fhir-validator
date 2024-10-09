@@ -211,8 +211,3 @@ We use pytest see the unit tests in  `tests`
 ```sh
 poetry run pytest
 ```
-
----
-
-
-
