@@ -6,6 +6,8 @@ repos:
         entry: pandoc --from=markdown --to=rst --output=README.rst README.md
         language: system
         files: README.md
+        stages:
+          - commit
 
 -   repo: local
     hooks:
