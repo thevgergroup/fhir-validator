@@ -27,6 +27,12 @@ FHIR Validator
       -  `Example: Validate a FHIR
          File <#example-validate-a-fhir-file>`__
 
+   -  `Development <#development>`__
+
+      -  `Setting Up Your Development
+         Environment <#setting-up-your-development-environment>`__
+      -  `Tests <#tests>`__
+
 Background
 ----------
 
@@ -197,21 +203,95 @@ Example: Validate a FHIR File
 
 .. code:: python
 
-   from fhir_validator import identify_content_structure, validate_fhir_bundle_in_chunks
+   from fhir_validator import (compile_fhir_schema, 
+                               identify_content_structure, 
+                               load_consolidated_fhir_schema,
+                               validate_fhir_bundle_in_chunks,
+                               BUNDLE_PRETTY) 
+   import json                            
 
-   file_path = "path/to/fhir_file.json"
+   file_path = "data/samples/fhir/Laquanda221_Haag279_84a90023-0c6b-0eb9-95d6-50861e13f9b3.json"
    content_structure = identify_content_structure(file_path)
+
    print(f"Content structure: {content_structure}")
 
+   # By default loads the r4 schema
+   schema_json = load_consolidated_fhir_schema('schemas/r4/fhir.schema.json')
+   compiled_validator = compile_fhir_schema(schema_json)
+
    # If content structure is a bundle, validate it
-   if content_structure == 'BUNDLE':
+   if content_structure == BUNDLE_PRETTY:
        with open(file_path, 'r') as f:
            bundle = json.load(f)
-       validate_fhir_bundle_in_chunks(bundle, compiled_validator)
+       is_valid = validate_fhir_bundle_in_chunks(bundle, compiled_validator)
+       print(f"File : {file_path} is valid ? {is_valid}")
 
 This simple Python snippet demonstrates how to check the content
-structure of a FHIR file and, if it’s a ``BUNDLE``, how to validate its
-content.
+structure of a FHIR file and, if it’s a ``BUNDLE_PRETTY``, how to
+validate its content.
+
+--------------
+
+Development
+-----------
+
+To contribute to the ``fhir-validator`` project, you’ll need to install
+the necessary dependencies, including the ``dev`` and ``test`` groups
+for development tools and testing. The ``pre-commit`` hooks are part of
+the ``dev`` group, and ``pytest`` is part of the ``test`` group.
+
+Setting Up Your Development Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Clone the repository**:
+
+   .. code:: bash
+
+      git clone https://github.com/thevgergroup/fhir-validator.git
+      cd fhir-validator
+
+2. **Install dependencies using Poetry**:
+
+   Install both the ``dev`` and ``test`` groups to ensure you have all
+   the necessary tools for development and testing:
+
+   .. code:: bash
+
+      poetry install --with dev,test
+
+   This command installs the base dependencies along with the ``dev``
+   group (which includes tools like ``pre-commit``) and the ``test``
+   group (which includes tools like ``pytest``).
+
+   We use pandoc to generate the README.rst for pypi to ensure links are
+   correctly structured see [Installing
+   Pandoc](https://pandoc.org/installing.html] Update the any necessary
+   changes in ``README.md`` and the pre-commit hook will perform the
+   conversion.
+
+3. **Install the Pre-commit Hooks**:
+
+   The project uses ``pre-commit`` to automate tasks such as converting
+   ``README.md`` to ``README.rst`` before commits. To set up the
+   pre-commit hooks locally, run:
+
+   .. code:: bash
+
+      poetry run pre-commit install
+
+   This will configure the Git hooks to automatically run when you make
+   a commit.
+
+Tests
+~~~~~
+
+We use pytest see the unit tests in ``tests``
+
+.. code:: sh
+
+   poetry run pytest
+
+--------------
 
 .. _fhir-validator-1:
 
@@ -243,6 +323,12 @@ FHIR Validator
 
       -  `Example: Validate a FHIR
          File <#example-validate-a-fhir-file>`__
+
+   -  `Development <#development>`__
+
+      -  `Setting Up Your Development
+         Environment <#setting-up-your-development-environment>`__
+      -  `Tests <#tests>`__
 
 .. _background-1:
 
@@ -440,18 +526,98 @@ Example: Validate a FHIR File
 
 .. code:: python
 
-   from fhir_validator import identify_content_structure, validate_fhir_bundle_in_chunks
+   from fhir_validator import (compile_fhir_schema, 
+                               identify_content_structure, 
+                               load_consolidated_fhir_schema,
+                               validate_fhir_bundle_in_chunks,
+                               BUNDLE_PRETTY) 
+   import json                            
 
-   file_path = "path/to/fhir_file.json"
+   file_path = "data/samples/fhir/Laquanda221_Haag279_84a90023-0c6b-0eb9-95d6-50861e13f9b3.json"
    content_structure = identify_content_structure(file_path)
+
    print(f"Content structure: {content_structure}")
 
+   # By default loads the r4 schema
+   schema_json = load_consolidated_fhir_schema('schemas/r4/fhir.schema.json')
+   compiled_validator = compile_fhir_schema(schema_json)
+
    # If content structure is a bundle, validate it
-   if content_structure == 'BUNDLE':
+   if content_structure == BUNDLE_PRETTY:
        with open(file_path, 'r') as f:
            bundle = json.load(f)
-       validate_fhir_bundle_in_chunks(bundle, compiled_validator)
+       is_valid = validate_fhir_bundle_in_chunks(bundle, compiled_validator)
+       print(f"File : {file_path} is valid ? {is_valid}")
 
 This simple Python snippet demonstrates how to check the content
-structure of a FHIR file and, if it’s a ``BUNDLE``, how to validate its
-content.
+structure of a FHIR file and, if it’s a ``BUNDLE_PRETTY``, how to
+validate its content.
+
+--------------
+
+.. _development-1:
+
+Development
+-----------
+
+To contribute to the ``fhir-validator`` project, you’ll need to install
+the necessary dependencies, including the ``dev`` and ``test`` groups
+for development tools and testing. The ``pre-commit`` hooks are part of
+the ``dev`` group, and ``pytest`` is part of the ``test`` group.
+
+.. _setting-up-your-development-environment-1:
+
+Setting Up Your Development Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Clone the repository**:
+
+   .. code:: bash
+
+      git clone https://github.com/thevgergroup/fhir-validator.git
+      cd fhir-validator
+
+2. **Install dependencies using Poetry**:
+
+   Install both the ``dev`` and ``test`` groups to ensure you have all
+   the necessary tools for development and testing:
+
+   .. code:: bash
+
+      poetry install --with dev,test
+
+   This command installs the base dependencies along with the ``dev``
+   group (which includes tools like ``pre-commit``) and the ``test``
+   group (which includes tools like ``pytest``).
+
+   We use pandoc to generate the README.rst for pypi to ensure links are
+   correctly structured see [Installing
+   Pandoc](https://pandoc.org/installing.html] Update the any necessary
+   changes in ``README.md`` and the pre-commit hook will perform the
+   conversion.
+
+3. **Install the Pre-commit Hooks**:
+
+   The project uses ``pre-commit`` to automate tasks such as converting
+   ``README.md`` to ``README.rst`` before commits. To set up the
+   pre-commit hooks locally, run:
+
+   .. code:: bash
+
+      poetry run pre-commit install
+
+   This will configure the Git hooks to automatically run when you make
+   a commit.
+
+.. _tests-1:
+
+Tests
+~~~~~
+
+We use pytest see the unit tests in ``tests``
+
+.. code:: sh
+
+   poetry run pytest
+
+--------------

@@ -6,3 +6,11 @@ repos:
         entry: pandoc --from=markdown --to=rst --output=README.rst README.md
         language: system
         files: README.md
+
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: Run pytest before push
+        entry: poetry run pytest
+        language: system
+        stages: [pre-push]

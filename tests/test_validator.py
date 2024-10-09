@@ -2,12 +2,12 @@ import pytest
 import json
 from fhir_validator.validator import validate_fhir_resource, validate_fhir_bundle_in_chunks, load_consolidated_fhir_schema, compile_fhir_schema
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def consolidated_schema():
     """Fixture to load the consolidated schema."""
     return load_consolidated_fhir_schema()
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def compiled_validator(consolidated_schema):
     """Fixture to compile the schema for fastjsonschema."""
     return compile_fhir_schema(consolidated_schema)
