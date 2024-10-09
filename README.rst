@@ -167,11 +167,11 @@ This will return
 |         | resource.                                                  |
 +---------+------------------------------------------------------------+
 | ``RES   | The entire source file is one JSON resource. The JSON can  |
-| OURCE-P | span multiple lines.                                       |
+| OURCE_P | span multiple lines.                                       |
 | RETTY`` |                                                            |
 +---------+------------------------------------------------------------+
 | ``B     | The entire source file is one JSON bundle. The JSON can    |
-| UNDLE-P | span multiple lines.                                       |
+| UNDLE_P | span multiple lines.                                       |
 | RETTY`` |                                                            |
 +---------+------------------------------------------------------------+
 
@@ -480,11 +480,11 @@ This will return
 |         | resource.                                                  |
 +---------+------------------------------------------------------------+
 | ``RES   | The entire source file is one JSON resource. The JSON can  |
-| OURCE-P | span multiple lines.                                       |
+| OURCE_P | span multiple lines.                                       |
 | RETTY`` |                                                            |
 +---------+------------------------------------------------------------+
 | ``B     | The entire source file is one JSON bundle. The JSON can    |
-| UNDLE-P | span multiple lines.                                       |
+| UNDLE_P | span multiple lines.                                       |
 | RETTY`` |                                                            |
 +---------+------------------------------------------------------------+
 

@@ -117,8 +117,8 @@ This will return
 |-----------------|---------------------------------------------------------------------------------------------------|
 | `BUNDLE`      | The source file contains one or more lines of newline-delimited JSON (ndjson). Each line is a bundle, which contains one or more resources. If you don't specify ContentStructure, it defaults to BUNDLE. |
 | `RESOURCE`    | The source file contains one or more lines of newline-delimited JSON (ndjson). Each line is a single resource. |
-| `RESOURCE-PRETTY` | The entire source file is one JSON resource. The JSON can span multiple lines.                    |
-| `BUNDLE-PRETTY`   | The entire source file is one JSON bundle. The JSON can span multiple lines.                      |
+| `RESOURCE_PRETTY` | The entire source file is one JSON resource. The JSON can span multiple lines.                    |
+| `BUNDLE_PRETTY`   | The entire source file is one JSON bundle. The JSON can span multiple lines.                      |
 
 
 ### Options:
