@@ -16,3 +16,6 @@ repos:
         entry: poetry run pytest
         language: system
         stages: [pre-push]
+        pass_filenames: false  # Avoid passing files as arguments
+        additional_dependencies: []
+        #working_dir: .
